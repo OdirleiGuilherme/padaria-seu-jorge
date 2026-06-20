@@ -18,7 +18,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão:
 
 ## 💻 Sobre o projeto
 
-Este projeto foi desenvolvido para resolver o problema de gerenciamento de fornecedores em pequenas empresas. 
+Este projeto foi desenvolvido para resolver o problema de gerenciamento de fornecedores na padaria seu Jorge. 
 Ele utiliza o padrão arquitetural MVC (focado na camada de Model) para separar a lógica de negócio e a entidade `Fornecedor`.
 
 O padrão MVC separa a aplicação em três camadas lógicas:
@@ -31,6 +31,29 @@ interagir com o usuário e capturar as entradas do teclado.
 
 **Controller (Camada de Controle):** Localizada na pasta `controllers/`. É o cérebro da aplicação. 
 Intermedia a comunicação entre a View e o Model, além de validar regras de negócio (como impedir o cadastro de um produto se o fornecedor não existir).
+
+## 📂 Estrutura de Pastas
+
+```text
+padaria_seu_jorge/
+│
+├── docs/
+|
+├── src/
+     ├── models/
+│    ├── __init__.py
+│    ├── fornecedor.py       # Estrutura e armazenamento de fornecedores
+│    └── produto.py          # Estrutura e armazenamento de produtos
+│
+|    ├── views/
+│    ├── __init__.py
+│    └── padaria_view.py     # Interface de linha de comando (entradas e saídas)
+│
+|    ├── controllers/
+│    ├── __init__.py
+│    └── padaria_controller.py # Lógica de negócio e orquestração do sistema
+│
+└── main.py                 # Ponto de entrada do sistema
 
 ### Recursos atuais:
 - **Entidade Fornecedor:** Armazena ID, Nome, CNPJ e Telefone.
@@ -45,15 +68,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina o [Python 3.
 
 ### 🎲 Rodando a aplicação
 
-```bash
-# Clone este repositório
-$ git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
-
-# Acesse a pasta do projeto no terminal
-$ cd seu-repositorio
-
-# Execute o arquivo principal (exemplo)
-$ python main.py
+A atualizar
 
 🛠 Tecnologias
 As seguintes ferramentas foram usadas na construção do projeto:
