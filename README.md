@@ -1,4 +1,4 @@
-# 📦 Sistema de Cadastro de Fornecedores
+# 📦 Sistema de Cadastro de Fornecedores e Produtos
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/seu-usuario/seu-repositorio?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/seu-usuario/seu-repositorio?style=for-the-badge)
