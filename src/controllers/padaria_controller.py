@@ -48,3 +48,5 @@ class PadariaController:
             self.view.mostrar_mensagem("Fornecedor removido com sucesso!")
         else:
             self.view.mostrar_mensagem("Fornecedor não encontrado.")
+            
+    def cadastrar_produtos(self):

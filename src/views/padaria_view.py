@@ -37,9 +37,11 @@ class PadariaView:
   
 
     def get_dados_produto(self): # Cadastrar produtos adquiridos
+        id_produto = input("Digite o ID do produto: ")
         nome = input("Digite o nome do produto: ")
+        id_fornecedor = input("Digite o ID do fornecedor: ")
         preco = float(input("Digite o preço do produto: "))
-        return nome, preco
+        return id_produto, nome, id_fornecedor, preco
     
     
     def exibir_produtos(self, produtos): # Exibir produtos cadastrados
