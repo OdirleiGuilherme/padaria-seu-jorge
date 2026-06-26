@@ -8,7 +8,7 @@ class PadariaController:
         self.fornecedor_model = FornecedorModel()
         self.produto_model = ProdutoModel()
     
-    def iniciar(self):
+    def iniciar(self): # opções de escolha do usuário.
         while True:
             self.view.mostrar_opcoes() 
             escolha = self.view.get_escolha_usuario()
@@ -29,4 +29,22 @@ class PadariaController:
                 self.view.mostrar_mensagem("Saindo do sistema. Até logo!")
                 break
             else:
-                self.view.show_invalid_choice_message()
+                self.view.show_invalid_choice_message("Opção inválida. Por favor, selecione uma opção válida.")
+                
+    def cadastrar_fornecedores(self):
+        nome, cnpj, telefone = self.view.get_dados_fornecedor()
+        fornecedor = Fornecedor(nome, cnpj, telefone)
+        self.fornecedor_model.adicionar_fornecedor(fornecedor)
+        self.view.mostrar_mensagem("Fornecedor cadastrado com sucesso!")
+        
+    def listar_fornecedores(self):
+        fornecedores = self.fornecedor_model.listar_fornecedores()
+        self.view.exibir_fornecedores(fornecedores)
+    
+    def remover_fornecedores(self):
+        nome, cnpj = self.view.get_nome_fornecedor_remover()
+        fornecedor = Fornecedor(nome, cnpj, "")
+        if self.fornecedor_model.remover_fornecedor(fornecedor):
+            self.view.mostrar_mensagem("Fornecedor removido com sucesso!")
+        else:
+            self.view.mostrar_mensagem("Fornecedor não encontrado.")
