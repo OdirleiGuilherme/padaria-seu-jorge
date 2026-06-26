@@ -2,7 +2,7 @@ class PadariaView:
     def __init__(self, controller):
         self.controller = controller
 
-    def mostrar_menu(self):
+    def mostrar_opcoes(self):
         print("Bem-vindo a Padaria Seu Jorge!")
         print("1. Cadastrar Fornecedores")
         print("2. Listar Fornecedores")
