@@ -34,8 +34,8 @@ class PadariaController:
     def cadastrar_fornecedores(self):
         nome, cnpj, telefone = self.view.get_dados_fornecedor()
         fornecedor = Fornecedor(nome, cnpj, telefone)
-        self.fornecedor_model.adicionar_fornecedor(fornecedor)
-        self.view.mostrar_mensagem("Fornecedor cadastrado com sucesso!")
+        id_gerado = self.fornecedor_model.adicionar_fornecedor(fornecedor) # ID é gerado ao salvar.
+        self.view.mostrar_mensagem(f"Fornecedor cadastrado com sucesso! ID: {id_gerado}")
         
     def listar_fornecedores(self):
         fornecedores = self.fornecedor_model.listar_fornecedores()
@@ -50,3 +50,13 @@ class PadariaController:
             self.view.mostrar_mensagem("Fornecedor não encontrado.")
             
     def cadastrar_produtos(self):
+        nome, id_fornecedor, preco = self.view.get_dados_produto()
+        
+        fornecedores_existentes = [f.id for f in self.fornecedor_model.listar_fornecedores()]
+        if id_fornecedor not in fornecedores_existentes:
+            self.view.mostrar_mensagem("Fornecedor não encontrado.")
+            return
+        
+        produto = Produto(nome, id_fornecedor, preco)
+        id_gerado = self.produto_model.adicionar_produto(produto) # ID é gerado ao salvar.
+        self.view.mostrar_mensagem(f"Produto cadastrado com sucesso! ID: {id_gerado}")
