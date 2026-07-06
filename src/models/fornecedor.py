@@ -18,4 +18,11 @@ class FornecedorModel:
     
     def listar_fornecedor(self):
         return self.fornecedores
+    
+    def remover_fornecedor(self, fornecedor: Fornecedor):
+        for f in self.fornecedores:
+            if f.nome == fornecedor.nome and f.cnpj == fornecedor.cnpj and f.id == fornecedor.id:
+                self.fornecedores.remove(f)
+                return True # removido com sucesso
+        return False  # Não encontrado forncedor para remoção
         

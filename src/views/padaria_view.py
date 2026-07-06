@@ -33,13 +33,13 @@ class PadariaView:
     def get_nome_fornecedor_remover(self): # Remove fornecedores cadastrados
         nome = input("Digite o nome do fornecedor a ser removido: ")
         cnpj = input("Digite o CNPJ do fornecedor a ser removido: ")
-        return nome, cnpj
-  
+        id_fornecedor = input("Digite o ID do fornecedor a ser removido: ")
+        return nome, cnpj, id_fornecedor
 
     def get_dados_produto(self): # Cadastrar produtos adquiridos
         nome = input("Digite o nome do produto: ")
-        id_fornecedor = input("Digite o ID do fornecedor: ")
-        preco = float(input("Digite o preço do produto: "))
+        id_fornecedor = input("Digite o ID do fornecedor: ") # precisa digitar a D do fornecedor para ccadastrar e vincular produto ao mesmo 
+        preco = float(input("Digite o preço do produto: R$ "))
         return nome, id_fornecedor, preco
     
     
