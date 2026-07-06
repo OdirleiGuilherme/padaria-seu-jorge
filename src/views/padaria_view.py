@@ -6,10 +6,10 @@ class PadariaView:
         print("Bem-vindo a Padaria Seu Jorge!")
         print("1. Cadastrar Fornecedores")
         print("2. Listar Fornecedores")
-        print("3. Remover Fornecedores")
+        print("3. Remover Fornecedor")
         print("4. Cadastrar Produtos")
         print("5. Listar produtos")
-        print("6. Remover Produtos")
+        print("6. Remover Produto")
         print("0. Sair")
 
     def get_escolha_usuario(self):

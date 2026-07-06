@@ -41,9 +41,11 @@ class PadariaController:
         fornecedores = self.fornecedor_model.listar_fornecedores()
         self.view.exibir_fornecedores(fornecedores)
     
+            
     def remover_fornecedores(self):
-        nome, cnpj = self.view.get_nome_fornecedor_remover()
+        nome, cnpj, id_fornecedor = self.view.get_nome_fornecedor_remover()
         fornecedor = Fornecedor(nome, cnpj, "")
+        fornecedor.id = int(id_fornecedor)  # Atribui o ID ao objeto Fornecedor
         if self.fornecedor_model.remover_fornecedor(fornecedor):
             self.view.mostrar_mensagem("Fornecedor removido com sucesso!")
         else:
@@ -60,3 +62,15 @@ class PadariaController:
         produto = Produto(nome, id_fornecedor, preco)
         id_gerado = self.produto_model.adicionar_produto(produto) # ID é gerado ao salvar.
         self.view.mostrar_mensagem(f"Produto cadastrado com sucesso! ID: {id_gerado}")
+    
+    def remover_produtos(self):
+        nome = self.view.get_nome_produto_remover()
+        produto = Produto(nome, "", 0)  # O preço e o ID do fornecedor não são necessários para a remoção
+        if self.produto_model.remover_produto(produto):
+            self.view.mostrar_mensagem("Produto removido com sucesso!")
+        else:
+            self.view.mostrar_mensagem("Produto não encontrado.")
+        
+    def listar_produtos(self):
+        produtos = self.produto_model.listar_produtos()
+        self.view.exibir_produtos(produtos)

@@ -16,5 +16,22 @@ class ProdutoModel:
         self.proxima_id += 1 # incrementa o próximo ID para o próximo produto
         return produto.id # retorna o ID do produto cadastrado
     
+    def remover_produto(self, produto: Produto):
+        for p in self.produtos:
+            if p.nome == produto.nome and p.id_fornecedor == produto.id_fornecedor and p.id == produto.id:
+                self.produtos.remove(p)
+                return True # removido com sucesso
+        return False  # Não encontrado produto para remoção
+    
+    def remover_produto_por_fornecedor(self, id_fornecedor):
+        produtos_removidos = []
+        for p in self.produtos:
+            if p.id_fornecedor == id_fornecedor:
+                produtos_removidos.append(p)
+        for p in produtos_removidos:
+            self.produtos.remove(p)
+        return len(produtos_removidos)  # Retorna a quantidade de produtos removidos
+    
     def listar_produto(self):
         return self.produtos
+    
